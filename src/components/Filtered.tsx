@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Extensions } from "./Extentions";
 
 export function Filtered() {
-  const [active, setActive] = useState("All");
+  const [active, setActive] = useState("all");
   const filtered = ["All", "Active", "Inactive"];
 
   return (
-    <div className="mx-auto mt-10 flex max-w-7xl items-center justify-between">
+    <div className="mx-auto mt-10 flex max-w-7xl flex-wrap items-center justify-center gap-4 sm:justify-between">
       <h2 className="text-2xl font-bold">Extensions List</h2>
 
       <div className="flex gap-2 rounded-xl p-1.5">
@@ -23,6 +24,8 @@ export function Filtered() {
           </button>
         ))}
       </div>
+
+      <Extensions status={active} />
     </div>
   );
 }
