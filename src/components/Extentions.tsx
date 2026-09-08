@@ -48,14 +48,19 @@ export function Extensions({ status }: ExtensionsProps) {
           const isRemoved = removed.includes(exten.id);
 
           return (
-            <div key={exten.id} className="rounded-2xl bg-white p-4">
+            <div
+              key={exten.id}
+              className="rounded-2xl border border-zinc-200/30 bg-white p-4 dark:bg-zinc-400/40"
+            >
               <div className="mb-6 flex gap-3">
                 <img src={exten.logo} alt={exten.name} />
 
                 <div>
                   <span className="text-base font-semibold">{exten.name}</span>
 
-                  <p className="text-sm text-zinc-600">{exten.description}</p>
+                  <p className="text-sm text-zinc-600 dark:text-white/50">
+                    {exten.description}
+                  </p>
                 </div>
               </div>
 
@@ -70,7 +75,7 @@ export function Extensions({ status }: ExtensionsProps) {
                       setRemoved((current) => [...current, exten.id]);
                     }
                   }}
-                  className="cursor-pointer rounded-2xl bg-zinc-100 px-4 py-1"
+                  className="cursor-pointer rounded-2xl border border-zinc-200/30 bg-zinc-100 px-4 py-1 font-semibold hover:bg-red-600 hover:text-white dark:bg-inherit"
                 >
                   {isRemoved ? "Undo" : "Remove"}
                 </button>
